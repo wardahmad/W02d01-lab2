@@ -13,6 +13,12 @@ Write a function `calculateCube` that takes a single number and prints the volum
 console.log(calculateCube(5));
 ```
 
+function calculateCube(num){
+    return Math.pow(num,3)
+}
+
+console.log(calculateCube(5));
+
 > => 125
 
 
@@ -24,6 +30,17 @@ Write a function `isAVowel` that takes a character (i.e. a string of length 1) a
 console.log(isAVowel("a"));
 ```
 
+function isAVowel(str){
+    var vowel = ["A","E","I","U","O"];
+    var vowel2 = str.toUpperCase();
+    for (var i = 0; i < vowel.length; i++){
+        if (vowel2 === vowel[i]){
+            return true;
+        }
+        return false;
+    }
+}
+
 > => true
 
 
@@ -34,6 +51,12 @@ Write a function `getTwoLengths` that accepts two parameters (strings). The func
 ```javascript
 console.log(getTwoLengths("Hank", "Hippopopalous"));
 ```
+
+var arr = [];
+function getTwoLengths(str1,str2){
+  arr.push(str1.length,str2.length)
+  return arr;
+}
 
 > => [4, 13]
 
@@ -48,6 +71,17 @@ Write a function `getMultipleLengths` that accepts a single parameter as an argu
 console.log(getMultipleLengths(["hello", "what", "is", "up", "dude"]));
 ```
 
+var result = [];
+
+function getMultipleLengths(arr){
+  for (var i =0; i < arr.length; i++){
+    for (var j =0; j < arr[i].length; j++)
+    len = arr[i].length
+    result.push(len)
+  }
+  return result;
+}
+
 > => [5, 4, 2, 2, 4]
 
 
@@ -58,8 +92,15 @@ Define a function `maxOfThree` that takes three numbers as arguments and returns
 ```javascript
 console.log(maxOfThree(6, 9, 1));
 ```
-
+var result = 0;
+function maxOfThree(num1, num2, num3){
+  result = Math.max(num1, num2, num3);
+  return result;
+}
 > => 9
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+I can't use while loop because you can't change the condition for every parameter
 
 
 # 6
@@ -69,7 +110,41 @@ Write a function `printLongestWord` that accepts a single argument, an **array o
 
 ```javascript
 console.log(printLongestWord(["BoJack", "Princess", "Diane", "a", "Max", "Peanutbutter", "big", "blob"]));
+
+does not work: because you can't use index like for loop
+/*var i = 0;
+var j = 0;
+var result= "";
+function printLongestWord(arr){
+  while (i < arr.length ){
+    while (j < arr[i].length){
+      result=arr[j];
+
+    }
+  }
+  return result;
+}
+
+console.log(printLongestWord(["BoJack", "Princess", "Diane", "a", "Max", "Peanutbutter", "big", "blob"]));
+*/
 ```
+
+with for loop :
+
+var result= "";
+function printLongestWord(arr){
+  for (var i = 0; i < arr.length; i++){
+    for (var j = 0; j < arr[i].length; j++){
+      if (arr[i].length > result.length){
+        result = arr[i];
+      }
+    }
+  }
+  return result;
+}
+
+console.log(printLongestWord(["BoJack", "Princess", "Diane", "a", "Max", "Peanutbutter", "big", "blob"]));
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 > => "Peanutbutter"
 
@@ -86,6 +161,17 @@ power of 2` is 225.
 ```javascript
 console.log(transmogrify(5, 3, 2));
 ```
+
+does not work: because you can't use index like for loop
+
+function transmogrify(num1,num2,num3){
+  return Math.pow((num1*num2), num3);
+
+}
+console.log(transmogrify(5, 3, 2));
+
+
+
 
 > => 225
 
